@@ -1,46 +1,40 @@
-/* globals.css - Replace your current file with this */
+/* globals.css - Base Global Styles Only */
 
 @import "tailwindcss";
 
 :root {
-  /* Light mode - Minimalist palette */
-  --background: #fafafa;
-  --foreground: #111111;
-  --primary: #111111;
-  --primary-dark: #000000;
-  --secondary: #404040;
-  --accent: #2563eb;
-  --muted: #737373;
-  --border: #e5e5e5;
-  --card-bg: #ffffff;
-  --sidebar-bg: #ffffff;
+  /* Light Mode Colors */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --secondary: #64748b;
   --success: #10b981;
   --warning: #f59e0b;
   --error: #ef4444;
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.03);
-  --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --muted: #94a3b8;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  
+  /* Border Radius */
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #ffffff;
-    --primary-dark: #e5e5e5;
-    --secondary: #a3a3a3;
-    --accent: #3b82f6;
-    --muted: #737373;
-    --border: #262626;
-    --card-bg: #141414;
-    --sidebar-bg: #0a0a0a;
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
-    --shadow-md: 0 1px 3px 0 rgb(0 0 0 / 0.3);
-    --shadow-lg: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --secondary: #94a3b8;
+    --border: #1e293b;
+    --card: #1e293b;
+    --muted: #64748b;
   }
 }
 
@@ -49,12 +43,10 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-muted: var(--muted);
   --color-border: var(--border);
-  --color-card-bg: var(--card-bg);
-  --font-sans: var(--font-geist-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif);
-  --font-mono: var(--font-geist-mono, 'SF Mono', 'Monaco', monospace);
+  --color-card: var(--card);
+  --color-success: var(--success);
+  --color-muted: var(--muted);
 }
 
 * {
@@ -66,313 +58,50 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Minimalist container */
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+/* Base Button Styles (no specific classes, just reset) */
+button {
+  font-family: inherit;
 }
 
-/* Clean card design */
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  transition: all 0.2s ease;
+/* Base Input Styles */
+input, textarea, select, button {
+  font-family: inherit;
 }
 
-.card-hover:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-lg);
-}
+/* Utility Classes - Colors */
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-success { color: var(--success); }
+.text-error { color: var(--error); }
+.text-muted { color: var(--muted); }
 
-/* Minimal buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-radius: var(--radius-md);
-  transition: all 0.15s ease;
-  cursor: pointer;
-}
+.bg-primary { background: var(--primary); }
+.bg-card { background: var(--card); }
+.bg-border { background: var(--border); }
 
-.btn-primary {
-  background: var(--primary);
-  color: var(--background);
-  border: none;
-}
+/* Utility Classes - Borders */
+.border-default { border: 1px solid var(--border); }
+.border-t { border-top: 1px solid var(--border); }
+.border-b { border-bottom: 1px solid var(--border); }
 
-.btn-primary:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
-}
+/* Utility Classes - Shadows */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
 
-.btn-secondary {
-  background: transparent;
-  color: var(--foreground);
-  border: 1px solid var(--border);
-}
+/* Utility Classes - Border Radius */
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
 
-.btn-secondary:hover {
-  background: var(--border);
-  border-color: var(--primary);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--muted);
-}
-
-.btn-ghost:hover {
-  color: var(--foreground);
-  background: var(--border);
-}
-
-/* Inputs - minimal */
-input, textarea, select {
-  width: 100%;
-  background: var(--background);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 0.625rem 0.875rem;
-  font-size: 0.875rem;
-  color: var(--foreground);
-  transition: all 0.15s ease;
-}
-
-input:focus, textarea:focus, select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
-}
-
-/* Platform connection cards */
-.platform-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  transition: all 0.2s ease;
-}
-
-.platform-card-connected {
-  border-color: var(--success);
-  background: linear-gradient(to bottom right, var(--card-bg), var(--card-bg));
-}
-
-/* Status badges */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  padding: 0.25rem 0.625rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border-radius: 2rem;
-}
-
-.badge-success {
-  background: rgba(16, 185, 129, 0.1);
-  color: var(--success);
-}
-
-.badge-warning {
-  background: rgba(245, 158, 11, 0.1);
-  color: var(--warning);
-}
-
-/* Dashboard layout */
-.dashboard-layout {
-  display: flex;
-  min-height: 100vh;
-}
-
-.sidebar {
-  width: 260px;
-  background: var(--sidebar-bg);
-  border-right: 1px solid var(--border);
-  padding: 1.5rem;
-  position: fixed;
-  height: 100vh;
-  overflow-y: auto;
-}
-
-.main-content {
-  flex: 1;
-  margin-left: 260px;
-  padding: 2rem;
-}
-
-/* Post composer */
-.post-composer {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-}
-
-.post-composer textarea {
-  border: none;
-  padding: 0;
-  font-size: 1rem;
-  line-height: 1.6;
-  resize: none;
-}
-
-.post-composer textarea:focus {
-  box-shadow: none;
-}
-
-/* Media preview */
-.media-preview {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.media-item {
-  position: relative;
-  aspect-ratio: 1;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--border);
-}
-
-/* Schedule picker */
-.schedule-picker {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0.75rem;
-  background: var(--background);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-}
-
-/* Analytics cards */
-.stat-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-}
-
-.stat-value {
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.2;
-  margin-top: 0.5rem;
-}
-
-.stat-label {
-  font-size: 0.75rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* Platform icons */
-.platform-icon {
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Loading states */
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--border) 25%,
-    var(--card-bg) 50%,
-    var(--border) 75%
-  );
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.3s ease-out;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-    position: fixed;
-    z-index: 50;
-    transition: transform 0.3s ease;
-  }
-  
-  .sidebar.open {
-    transform: translateX(0);
-  }
-  
-  .main-content {
-    margin-left: 0;
-    padding: 1rem;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  .stat-value {
-    font-size: 1.5rem;
-  }
-}
-
-/* Utility classes */
-.text-balance {
-  text-wrap: balance;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--foreground) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.separator {
-  height: 1px;
-  background: var(--border);
-  margin: 1rem 0;
-}
+/* Utility Classes - Transitions */
+.transition-default { transition: all 0.2s ease; }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -387,6 +116,118 @@ input:focus, textarea:focus, select:focus {
 ::-webkit-scrollbar-thumb {
   background: var(--muted);
   border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Selection Color */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Disabled States */
+.disabled, 
+[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Add these to your existing globals.css */
+
+/* Gradient Animations */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-animate {
+  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background-size: 400% 400%;
+  animation: gradient 3s ease infinite;
+}
+
+/* Card Hover Effects */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Better Focus Rings */
+input:focus, 
+textarea:focus, 
+select:focus, 
+button:focus {
+  outline: none;
+  ring: 2px solid var(--primary);
+  ring-offset: 2px;
+}
+
+/* Loading Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    var(--border) 0%,
+    var(--card) 20%,
+    var(--border) 40%,
+    var(--border) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Custom Checkbox Styling */
+input[type="checkbox"] {
+  accent-color: var(--primary);
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
